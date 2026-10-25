@@ -1,0 +1,40 @@
+# Environment & Secrets (Crucial)
+.env
+.env.local
+.env.*.local
+*.env
+
+# Large Datasets & Patient Data
+brain_mri_dataset/
+backend/brain_mri_dataset/
+sample_brain_mris/
+backend/sample_brain_mris/
+*.dcm
+*.dicom
+
+# Python Cache & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# Node.js / Frontend Artifacts
+node_modules/
+frontend/node_modules/
+dist/
+build/
+.npm
+*.log
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Large Model Binaries (GitHub rejects files over 100 MB)
+# Uncomment the line below if any .pkl file exceeds 100 MB:
+# *.pkl

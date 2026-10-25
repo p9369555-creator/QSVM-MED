@@ -214,8 +214,9 @@ class QSVMEngine:
             angle_scaler=self.angle_scaler,
             target_model=self.qsvm_model,
             model_label="QSVM (qsvm_model.pkl)",
-            patch_size=32,
-            stride=32,
+            patch_size=24,
+            stride=8,
+            predicted_idx=qsvm_idx,
         )
         hotspots = explainability.get("hotspots", [])
 

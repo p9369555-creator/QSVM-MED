@@ -62,7 +62,8 @@ This project classifies brain MRI as **no tumor vs tumor**. `backend/setup_datas
 ```
 cd backend
 pip install -r requirements.txt
-python train_brain_mri.py                        # downloads the real Kaggle dataset, trains both models on all of it
+python download_dataset.py                       # copies the real Kaggle dataset into backend/kaggle_brain_mri/
+python train_brain_mri.py                        # trains both models on all of it (uses that folder automatically)
 python train_brain_mri.py --qsvm-max-train 300   # quick first run
 ```
 

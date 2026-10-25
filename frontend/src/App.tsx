@@ -198,8 +198,9 @@ function QuantumUploadDashboard({ onLogout }: { onLogout: () => void }) {
   const [activeTab, setActiveTab] = useState<'scan' | 'benchmark'>('scan');
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-  const [showRoi, setShowRoi] = useState<boolean>(true);
-  const [showHeatmap, setShowHeatmap] = useState<boolean>(true);
+  // Off by default: this model sees only 8 global image values, so its sensitivity map is NOT a tumor location.
+  const [showRoi, setShowRoi] = useState<boolean>(false);
+  const [showHeatmap, setShowHeatmap] = useState<boolean>(false);
   const [heatmapOpacity, setHeatmapOpacity] = useState<number>(0.65);
   const [viewMode, setViewMode] = useState<'overlay' | 'original' | 'heatmap_only'>('overlay');
   const [isLoading, setIsLoading] = useState(false);
@@ -441,6 +442,22 @@ function QuantumUploadDashboard({ onLogout }: { onLogout: () => void }) {
             {resultData?.explainability && (
               <div className="pt-3 text-[10px] font-mono text-slate-400">
                 Heatmap Source: <strong className="text-sky-400">{resultData.explainability.evaluated_model}</strong>
+                {resultData.explainability.warning && (
+                  <div className="mt-2 p-2 bg-amber-950/40 border border-amber-700/50 text-amber-300 rounded">
+                    {resultData.explainability.warning}
+                  </div>
+                )}
+                <div className="mt-1 text-slate-500">
+                  Model sensitivity only - NOT a tumor location. This model sees 8 global image values and cannot
+                  localise tumors.
+                </div>
+                <button
+                  type="button"
+                  onClick={() => { const v = !showHeatmap; setShowHeatmap(v); setShowRoi(v); }}
+                  className="mt-2 px-2 py-1 border border-slate-700 rounded text-slate-300 hover:text-white"
+                >
+                  {showHeatmap ? 'Hide' : 'Show'} model-sensitivity map
+                </button>
               </div>
             )}
           </div>

@@ -8,39 +8,15 @@
   "split": "Official Kaggle Training/ (85% train / 15% validation, duplicates removed) and official Testing/ folder as held-out test (leakage removed)",
   "qsvm": {
     "model_name": "Calibrated 8-Qubit QSVM (qsvm_model.pkl)",
-    "kernel_name": "ZZFeatureMap Exact Fidelity Kernel (angle scale 0.05) + Platt Scaling",
+    "kernel_name": "ZZFeatureMap Exact Fidelity Kernel (angle scale 0.1) + Platt Scaling",
     "feature_dimension": 8,
     "num_qubits": 8,
     "circuit_depth": 31,
     "entanglement": "Linear Pairwise (ZZ)",
-    "training_time_seconds": 183.94,
-    "support_vectors_count": 1051,
+    "training_time_seconds": 177.97,
+    "support_vectors_count": 1177,
     "training_samples_used": 4598,
     "tuning": [
-      {
-        "angle_scale": 0.03,
-        "C": 1.0,
-        "val_roc_auc": 0.9087,
-        "mean_off_diagonal_kernel": 0.7838
-      },
-      {
-        "angle_scale": 0.03,
-        "C": 10.0,
-        "val_roc_auc": 0.9345,
-        "mean_off_diagonal_kernel": 0.7838
-      },
-      {
-        "angle_scale": 0.05,
-        "C": 1.0,
-        "val_roc_auc": 0.9281,
-        "mean_off_diagonal_kernel": 0.54
-      },
-      {
-        "angle_scale": 0.05,
-        "C": 10.0,
-        "val_roc_auc": 0.9426,
-        "mean_off_diagonal_kernel": 0.54
-      },
       {
         "angle_scale": 0.1,
         "C": 1.0,
@@ -54,25 +30,49 @@
         "mean_off_diagonal_kernel": 0.1939
       },
       {
-        "angle_scale": 0.15,
+        "angle_scale": 0.25,
         "C": 1.0,
-        "val_roc_auc": 0.9361,
-        "mean_off_diagonal_kernel": 0.0815
+        "val_roc_auc": 0.9295,
+        "mean_off_diagonal_kernel": 0.0189
       },
       {
-        "angle_scale": 0.15,
+        "angle_scale": 0.25,
         "C": 10.0,
-        "val_roc_auc": 0.9337,
-        "mean_off_diagonal_kernel": 0.0815
+        "val_roc_auc": 0.9275,
+        "mean_off_diagonal_kernel": 0.0189
+      },
+      {
+        "angle_scale": 0.5,
+        "C": 1.0,
+        "val_roc_auc": 0.8013,
+        "mean_off_diagonal_kernel": 0.006
+      },
+      {
+        "angle_scale": 0.5,
+        "C": 10.0,
+        "val_roc_auc": 0.8008,
+        "mean_off_diagonal_kernel": 0.006
+      },
+      {
+        "angle_scale": 1.0,
+        "C": 1.0,
+        "val_roc_auc": 0.6439,
+        "mean_off_diagonal_kernel": 0.0053
+      },
+      {
+        "angle_scale": 1.0,
+        "C": 10.0,
+        "val_roc_auc": 0.6431,
+        "mean_off_diagonal_kernel": 0.0053
       }
     ],
-    "accuracy": 0.9373,
-    "precision": 0.9651,
-    "recall": 0.9489,
-    "f1_score": 0.9569,
-    "roc_auc": 0.9678,
-    "specificity": 0.9054,
-    "avg_inference_latency_ms": 26,
+    "accuracy": 0.9401,
+    "precision": 0.9669,
+    "recall": 0.9508,
+    "f1_score": 0.9588,
+    "roc_auc": 0.9674,
+    "specificity": 0.9105,
+    "avg_inference_latency_ms": 32,
     "confusion_matrix": {
       "labels": [
         "Normal Cell",
@@ -80,12 +80,12 @@
       ],
       "matrix": [
         [
-          354,
-          37
+          356,
+          35
         ],
         [
-          55,
-          1022
+          53,
+          1024
         ]
       ]
     },
@@ -96,95 +96,95 @@
       },
       {
         "fpr": 0.0051,
-        "tpr": 0.5125
+        "tpr": 0.3798
       },
       {
         "fpr": 0.0128,
-        "tpr": 0.5738
+        "tpr": 0.5924
       },
       {
         "fpr": 0.0205,
-        "tpr": 0.6992
+        "tpr": 0.7057
       },
       {
         "fpr": 0.0281,
-        "tpr": 0.818
+        "tpr": 0.7577
       },
       {
-        "fpr": 0.0358,
-        "tpr": 0.8728
+        "fpr": 0.0384,
+        "tpr": 0.7762
       },
       {
-        "fpr": 0.0435,
-        "tpr": 0.8784
+        "fpr": 0.046,
+        "tpr": 0.792
       },
       {
-        "fpr": 0.0512,
-        "tpr": 0.8914
+        "fpr": 0.0537,
+        "tpr": 0.8839
       },
       {
-        "fpr": 0.0691,
-        "tpr": 0.9053
+        "fpr": 0.0614,
+        "tpr": 0.8988
+      },
+      {
+        "fpr": 0.0665,
+        "tpr": 0.9146
       },
       {
         "fpr": 0.0767,
-        "tpr": 0.922
+        "tpr": 0.9331
       },
       {
         "fpr": 0.087,
-        "tpr": 0.9313
-      },
-      {
-        "fpr": 0.0946,
         "tpr": 0.948
       },
       {
+        "fpr": 0.0997,
+        "tpr": 0.9564
+      },
+      {
+        "fpr": 0.1074,
+        "tpr": 0.9666
+      },
+      {
         "fpr": 0.1228,
-        "tpr": 0.9591
-      },
-      {
-        "fpr": 0.1688,
-        "tpr": 0.9629
-      },
-      {
-        "fpr": 0.2046,
-        "tpr": 0.9675
-      },
-      {
-        "fpr": 0.266,
         "tpr": 0.9703
       },
       {
-        "fpr": 0.3223,
+        "fpr": 0.1407,
         "tpr": 0.9731
       },
       {
-        "fpr": 0.3913,
+        "fpr": 0.2455,
         "tpr": 0.9768
       },
       {
-        "fpr": 0.4885,
+        "fpr": 0.3836,
         "tpr": 0.9796
       },
       {
-        "fpr": 0.5575,
+        "fpr": 0.4859,
         "tpr": 0.9824
       },
       {
-        "fpr": 0.601,
-        "tpr": 0.9851
+        "fpr": 0.555,
+        "tpr": 0.9861
       },
       {
-        "fpr": 0.6394,
-        "tpr": 0.9879
+        "fpr": 0.6368,
+        "tpr": 0.9889
       },
       {
-        "fpr": 0.6598,
-        "tpr": 0.9907
+        "fpr": 0.7212,
+        "tpr": 0.9916
       },
       {
-        "fpr": 0.8056,
-        "tpr": 0.9954
+        "fpr": 0.8235,
+        "tpr": 0.9944
+      },
+      {
+        "fpr": 0.9156,
+        "tpr": 0.9972
       },
       {
         "fpr": 1.0,
@@ -199,7 +199,7 @@
     "num_qubits": 0,
     "circuit_depth": 0,
     "entanglement": "None (Euclidean R^8)",
-    "training_time_seconds": 79.89,
+    "training_time_seconds": 73.5,
     "support_vectors_count": 1054,
     "training_samples_used": 4598,
     "accuracy": 0.9544,
@@ -329,12 +329,12 @@
     ]
   },
   "deltas": {
-    "accuracy_delta": "-1.7%",
-    "precision_delta": "-2.6%",
-    "recall_delta": "+0.3%",
-    "f1_delta": "-1.1%",
+    "accuracy_delta": "-1.4%",
+    "precision_delta": "-2.4%",
+    "recall_delta": "+0.5%",
+    "f1_delta": "-0.9%",
     "roc_auc_delta": "-0.024",
-    "support_vector_reduction": "-0.3%"
+    "support_vector_reduction": "+11.7%"
   },
   "quantum_advantage_notes": [
     "Evaluated on 1468 held-out test scans (Official Kaggle Training/ (85% train / 15% validation, duplicates removed) and official Testing/ folder as held-out test (leakage removed)).",

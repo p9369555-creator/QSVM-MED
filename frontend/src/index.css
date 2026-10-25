@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-coral: #F02F34;
+    --color-sand: #E7D3BB;
+    --color-bg: #070A10;
+  }
+
+  body {
+    background-color: #070A10;
+    color: #F1F5F9;
+    font-family: 'Outfit', 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0C111C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #202C48;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F02F34;
+}
+
+/* Glassmorphism Surface */
+.glass-panel {
+  background: rgba(17, 23, 38, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-glow {
+  background: rgba(17, 23, 38, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(240, 47, 52, 0.2);
+  box-shadow: 0 0 25px -5px rgba(240, 47, 52, 0.15);
+}
+
+/* Quantum Circuit Wire Line */
+.circuit-wire {
+  height: 2px;
+  background: #2F3F66;
+  position: relative;
+}
+
+/* Quantum Pulse Animation */
+@keyframes quantumPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-quantum-pulse {
+  animation: quantumPulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

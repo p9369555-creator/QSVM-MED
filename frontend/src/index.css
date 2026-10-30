@@ -4,72 +4,90 @@
 
 @layer base {
   :root {
-    --color-coral: #F02F34;
-    --color-sand: #E7D3BB;
-    --color-bg: #070A10;
+    --color-bg: #F0FDFA;
+    --color-card: #FFFFFF;
+    --color-border: #99F6E4;
+    --color-primary: #0F766E;
+    --color-deep: #134E4A;
+    --color-accent: #5EEAD4;
+    --color-accent-soft: #CCFBF1;
+    --color-tumor: #B91C1C;
+    --color-normal: #15803D;
+    --color-text: #134E4A;
+    --color-text-muted: #475569;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    max-width: 100vw;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background-color: #F0FDFA;
+    color: #134E4A;
   }
 
   body {
-    background-color: #070A10;
-    color: #F1F5F9;
-    font-family: 'Outfit', 'Inter', sans-serif;
+    background-color: #F0FDFA;
+    color: #134E4A;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    max-width: 100vw;
+    width: 100%;
     overflow-x: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: #99F6E4;
+    color: #134E4A;
   }
 }
 
-/* Custom Scrollbar */
+/* Typography Helpers */
+.font-mono-numbers {
+  font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+  font-feature-settings: 'tnum' on, 'zero' on;
+}
+
+/* Light Teal Scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0C111C;
+  background: #F0FDFA;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #202C48;
+  background: #99F6E4;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #F02F34;
+  background: #0F766E;
 }
 
-/* Glassmorphism Surface */
-.glass-panel {
-  background: rgba(17, 23, 38, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Restyled Research Cards */
+.research-card {
+  background-color: #FFFFFF;
+  border: 1px solid #99F6E4;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px 0 rgba(15, 118, 110, 0.04);
 }
 
-.glass-panel-glow {
-  background: rgba(17, 23, 38, 0.85);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(240, 47, 52, 0.2);
-  box-shadow: 0 0 25px -5px rgba(240, 47, 52, 0.15);
+.research-card-soft {
+  background-color: #F0FDFA;
+  border: 1px solid #99F6E4;
+  border-radius: 12px;
 }
 
-/* Quantum Circuit Wire Line */
-.circuit-wire {
-  height: 2px;
-  background: #2F3F66;
-  position: relative;
-}
-
-/* Quantum Pulse Animation */
-@keyframes quantumPulse {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
-}
-
-.animate-quantum-pulse {
-  animation: quantumPulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+.research-grid {
+  background-image:
+    linear-gradient(to right, rgba(15, 118, 110, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 118, 110, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
 }

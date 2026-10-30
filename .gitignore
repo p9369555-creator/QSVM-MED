@@ -3,14 +3,24 @@
 .env.local
 .env.*.local
 *.env
+*.pem
+*.key
+*.cert
+*.pfx
+secrets/
 
-# Large Datasets & Patient Data
+# Large Datasets, Patient & Medical Scan Data
 brain_mri_dataset/
 backend/brain_mri_dataset/
 sample_brain_mris/
 backend/sample_brain_mris/
+kaggle_brain_mri/
+backend/kaggle_brain_mri/
+sample_scans/
 *.dcm
 *.dicom
+*.nii
+*.nii.gz
 
 # Python Cache & Virtual Environments
 __pycache__/
@@ -28,6 +38,14 @@ dist/
 build/
 .npm
 *.log
+
+# Backups & Local Helper Tools
+frontend/src_backup/
+powershell.cmd
+commit_msg.txt
+*.bak
+*.backup
+backend/Untitled.png
 
 # Operating System & IDE Files
 .DS_Store

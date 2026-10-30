@@ -8,6 +8,18 @@ export default {
   theme: {
     extend: {
       colors: {
+        radiology: {
+          bg: '#050607',
+          panel: '#0E1114',
+          subpanel: '#14181E',
+          border: '#1F242D',
+          hover: '#272E3A',
+          amber: '#F59E0B',
+          amberDark: '#B45309',
+          amberGlow: 'rgba(245, 158, 11, 0.25)',
+          text: '#D1D5DB',
+          muted: '#9CA3AF',
+        },
         coral: {
           50: '#FFF1F2',
           100: '#FFE4E6',
@@ -46,8 +58,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+        sans: ['"IBM Plex Sans"', 'Outfit', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'JetBrains Mono', 'Fira Code', 'monospace'],
       },
       boxShadow: {
         'quantum-glow': '0 0 25px -5px rgba(240, 47, 52, 0.35)',

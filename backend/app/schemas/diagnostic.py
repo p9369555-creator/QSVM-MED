@@ -36,6 +36,7 @@ class ExplainabilityBlock(BaseModel):
     max_importance: float
     limitations: str
     hotspots: list[HotspotPoint] = []
+    tumor_coordinates: dict[str, Any] | None = None
 
 
 class AnalysisResponse(BaseModel):
@@ -51,4 +52,5 @@ class AnalysisResponse(BaseModel):
     cell_analysis: dict[str, int]
     explainability: dict[str, Any]
     side_by_side: dict[str, Any]
+    tumor_coordinates: dict[str, Any] | None = None
     input_check: dict[str, Any] | None = None

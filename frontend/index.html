@@ -1,17 +1,46 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23F02F34'><circle cx='12' cy='12' r='4'/><path d='M12 2v3m0 14v3M2 12h3m14 0h3'/></svg>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QuantumSVM Studio — Quantum Machine Learning Platform</title>
-    <meta name="description" content="Quantum Support Vector Machine (QSVM) classification and classical benchmark platform powered by Qiskit and scikit-learn." />
-    <!-- Modern Typography: Outfit, Inter, JetBrains Mono -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>QSVM Med • Brain tumor screening with a quantum kernel SVM</title>
+    <meta name="description" content="QSVM Med: A research prototype that classifies brain MRI slices as tumor or no tumor using a simulated 8 qubit quantum kernel, compared with a tuned classical SVM." />
+    <meta name="theme-color" content="#F0FDFA" />
+    
+    <!-- Primary Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" type="image/png" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="QSVM Med • Research Prototype" />
+    <meta property="og:description" content="Brain tumor screening with a simulated 8 qubit quantum kernel SVM compared with a classical SVM baseline." />
+    
+    <!-- Base Layout Styles -->
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+        background-color: #F0FDFA;
+        color: #134E4A;
+      }
+      #root {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+    </style>
+
+    <!-- Typography: Inter & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-obsidian-950 text-slate-100 min-h-screen selection:bg-coral-500 selection:text-white antialiased">
+  <body class="bg-[#F0FDFA] text-[#134E4A] min-h-screen selection:bg-[#99F6E4] selection:text-[#134E4A] antialiased overflow-x-hidden">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

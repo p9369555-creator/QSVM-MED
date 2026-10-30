@@ -9,8 +9,9 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1:8000',
+        target: process.env.VITE_API_BASE_URL || 'https://qsvm-med.onrender.com',
         changeOrigin: true,
+        secure: false,
       },
     },
   },

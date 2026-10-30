@@ -18,6 +18,8 @@ class Settings(BaseSettings):
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "http://localhost:3000",
+        "https://qsvm-med.onrender.com",
+        "https://qsvm-med.com",
     ]
     MAX_UPLOAD_BYTES: int = 15 * 1024 * 1024  # 15 MB upload cap
     JWT_SECRET_KEY: str = "replace-with-secure-256-bit-secret-key-in-env"

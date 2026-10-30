@@ -1,6 +1,19 @@
-# QSVM Medical SaaS Platform
+# QSVM Med • Brain Tumor Screening with a Quantum Kernel SVM
 
-A Quantum Machine Learning (QML) platform for medical scan analysis using **FastAPI**, **React**, and **Vite**.
+An academic research prototype evaluating an **8-qubit quantum-kernel Support Vector Machine (QSVM)** against a tuned **classical RBF SVM** on brain MRI slices.
+
+- **Live Backend API**: `https://qsvm-med.onrender.com`
+- **Documentation**: For full mathematical formulations, pipeline architecture, and metrics, see [DOCUMENTATION.md](DOCUMENTATION.md).
+
+---
+
+## 👥 Research Team (Team 5 Qubits)
+
+- **Kartikey Mishra**: Quantum ML & Research
+- **Kunal**: Frontend & Visualization
+- **Kush**: Backend & Pipeline
+- **Kartikey**: Dataset & Validation
+- **Gaurav**: System Architecture & Research
 
 ---
 
@@ -10,72 +23,83 @@ A Quantum Machine Learning (QML) platform for medical scan analysis using **Fast
 QSVM/
 ├── backend/
 │   ├── app/
-│   │   ├── api/             # API routes
-│   │   ├── core/            # App configurations
-│   │   ├── models/          # Pre-trained models and weights
+│   │   ├── api/             # FastAPI REST endpoints
+│   │   ├── core/            # Configuration and authentication
+│   │   ├── models/          # Pre-trained models and benchmark metrics
 │   │   ├── schemas/         # Pydantic data schemas
-│   │   ├── services/        # ML and quantum inference services
+│   │   ├── services/        # Preprocessing, PCA, and quantum inference
 │   │   └── main.py          # FastAPI application entrypoint
 │   ├── requirements.txt     # Python backend dependencies
-│   └── run_server.py        # Python server launcher
+│   ├── run_server.py        # Local server runner
+│   └── train_brain_mri.py   # Training and benchmark script
 ├── frontend/
-│   ├── src/                 # React UI components & dashboard
-│   ├── public/              # Static assets
-│   ├── .env                 # API configuration (http://localhost:8000)
+│   ├── src/                 # React components, viewer, and state
+│   ├── public/              # Icons and static assets
+│   ├── .env.production      # Render production API configuration
 │   ├── package.json         # Node.js dependencies
-│   └── vite.config.ts       # Vite build & local proxy settings
-├── sample_scans/
-│   └── sample_chest_xray.jpg# Sample clinical scan for testing
-├── sample_medical_scan.jpg  # Input test image
+│   └── vite.config.ts       # Vite build configuration
+├── DOCUMENTATION.md         # Comprehensive project documentation
+├── render.yaml              # Render deployment blueprint
 ├── run_backend.bat          # Start backend server (:8000)
-├── run_frontend.bat         # Start frontend development server (:5173)
+├── run_frontend.bat         # Start frontend server (:5173)
 └── start_all.bat            # One-click launcher for both services
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Quick Start
 
-### One-Click Launch (Recommended)
-Double-click **`start_all.bat`**. This will:
-1. Start the FastAPI backend on `http://127.0.0.1:8000` (docs at `/docs`).
-2. Start the React frontend on `http://localhost:5173`.
-3. Open your browser directly to the dashboard.
+### 1. Run with Live Render Backend (Fastest)
+The frontend is already configured to communicate with the live backend at `https://qsvm-med.onrender.com`.
 
-### Dashboard Login Credentials
-- **Researcher ID**: `researcher` (set `AUTH_USERNAME` in `backend/.env` to change)
-- **Passkey**: `ChangeMe2026!` (default — set `AUTH_PASSWORD_HASH` and `JWT_SECRET_KEY` in `backend/.env` before sharing this anywhere)
-
----
-
-## 🧪 Testing Scan Analysis
-1. Log in to the dashboard.
-2. In the **Input Data** section, upload a grayscale brain MRI slice (for example an image from the Kaggle dataset's `Testing/` folder).
-3. Click **Process via QSVM** to observe the inference results, spatial heatmap, and telemetry.
-
----
-
-## 🧠 Training on real data
-
-This project classifies brain MRI as **no tumor vs tumor**. `backend/setup_dataset.py` only makes *synthetic demo images* — never use it for real results.
-
+```bash
+cd frontend
+npm install
+npm run dev
 ```
+Open `http://localhost:5173` in your browser.
+
+### 2. Run Completely Locally
+To run both backend and frontend on your machine:
+
+**Backend**:
+```bash
 cd backend
 pip install -r requirements.txt
-python download_dataset.py                       # copies the real Kaggle dataset into backend/kaggle_brain_mri/
-python train_brain_mri.py                        # trains both models on all of it (uses that folder automatically)
-python train_brain_mri.py --qsvm-max-train 300   # quick first run
+python run_server.py
 ```
 
-Every number in `app/models/benchmark_metrics.json` (and therefore the dashboard) is measured on the dataset's official `Testing/` folder. The QSVM is a *simulated* 8-qubit statevector kernel, not quantum hardware, and this is a research prototype — not a medical device.
+**Frontend**:
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Or double-click **`start_all.bat`** on Windows.
 
 ---
 
-## 🛡️ Upload checks
+## 🔑 Authorized Credentials (for Evaluators / Judges)
 
-Every upload goes through input checks. **They cannot confirm an image is a brain MRI** — they only catch clearly unsuitable inputs.
+- **Username**: `psit`
+- **Password**: `FSAVDfghj@1234`
 
-- **Always on:** blank images, extreme shapes, very low resolution, noise-like images.
-- **Optional learned check** ("looks unlike the training data", e.g. CT or X-ray): create `backend/ood_probes/` with a few non-brain images, then run `python build_ood_detector.py`. It is enabled only if it passes validation against your probe images; the report says so.
-- **Mode** (`INPUT_CHECK_MODE` in `backend/.env`): `warn` (default — result plus a warning banner), `reject` (HTTP 422), or `off`.
+---
 
+## 📊 Benchmark Summary (1,468 Held-Out Test Slices)
+
+| Metric | QSVM (8 Qubit Quantum Kernel) | Classical SVM (Tuned RBF) |
+| :--- | :---: | :---: |
+| **Accuracy** | **94.01%** | **95.44%** |
+| **Tumor Recall** | **95.08%** | **94.61%** |
+| **Precision** | **96.69%** | **99.12%** |
+| **F1 Score** | **95.88%** | **96.82%** |
+| **ROC AUC** | **0.9674** | **0.9915** |
+| **Dataset** | Kaggle Brain Tumor MRI Dataset | Official Testing Split |
+
+---
+
+## ⚖️ Scope & Disclaimer
+
+Research prototype. Not for clinical use. Predictions are global binary labels for individual 2D slices evaluated using simulated statevector quantum kernels.
